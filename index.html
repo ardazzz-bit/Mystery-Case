@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mystery Case — The Blackwood Room</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">◈ MYSTERY CASE</div>
+    <div class="status"><span></span> CASE #017 — UNSOLVED</div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="eyebrow">CONFIDENTIAL INVESTIGATION</div>
+      <h1>The Blackwood Room</h1>
+      <p>A locked room. Four suspects. One impossible timeline.</p>
+
+      <button class="primary" onclick="showSection('case')">
+        Open Case File →
+      </button>
+    </section>
+
+    <nav class="tabs">
+      <button class="tab active" onclick="showSection('case')">Case File</button>
+      <button class="tab" onclick="showSection('suspects')">Suspects</button>
+      <button class="tab" onclick="showSection('evidence')">Evidence</button>
+      <button class="tab" onclick="showSection('interrogation')">Interrogation</button>
+      <button class="tab" onclick="showSection('deduction')">Final Deduction</button>
+    </nav>
+
+    <!-- CASE -->
+
+    <section id="case" class="section active">
+
+      <div class="section-title">
+        <div>
+          <span class="eyebrow">FILE 017</span>
+          <h2>The Incident</h2>
+        </div>
+
+        <span class="badge">CONFIDENTIAL</span>
+      </div>
+
+      <div class="grid">
+
+        <div class="panel">
+          <div class="label">INCIDENT REPORT</div>
+
+          <p>
+            At exactly <b>11:42 PM</b>, Elias Blackwood was found unconscious
+            inside Room 307 of the Blackwood Hotel.
+          </p>
+
+          <p>
+            The room was locked from the inside. There were no signs of forced
+            entry.
+          </p>
+
+          <p>
+            A window was open, but the fire escape outside was covered in rain
+            and showed no fresh footprints.
+          </p>
+
+          <p>
+            Four people were inside the hotel that night.
+            Every single one claims they never entered Room 307.
+          </p>
+        </div>
+
+        <div class="panel">
+
+          <div class="label">CASE FACTS</div>
+
+          <div class="fact">
+            <span>Location</span>
+            <b>Blackwood Hotel — Room 307</b>
+          </div>
+
+          <div class="fact">
+            <span>Time Found</span>
+            <b>11:42 PM</b>
+          </div>
+
+          <div class="fact">
+            <span>Door</span>
+            <b>Locked from inside</b>
+          </div>
+
+          <div class="fact">
+            <span>Weather</span>
+            <b>Heavy rain</b>
+          </div>
+
+          <div class="fact">
+            <span>Suspects</span>
+            <b>4</b>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="warning">
+        <strong>!</strong>
+
+        <div>
+          <b>INVESTIGATOR'S NOTE</b>
+          <br>
+          Someone is lying.
+          <br>
+          The timeline is the key.
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- SUSPECTS -->
+
+    <section id="suspects" class="section">
+
+      <div class="section-title">
+        <div>
+          <span class="eyebrow">PEOPLE OF INTEREST</span>
+          <h2>Four Suspects</h2>
+        </div>
+      </div>
+
+      <div class="suspects">
+
+        <div class="panel suspect">
+          <div class="avatar">VR</div>
+
+          <span class="role">HOTEL OWNER</span>
+
+          <h3>Victor Reed</h3>
+
+          <p>52 years old</p>
+
+          <button onclick="openSuspect('victor')">
+            VIEW FILE
+          </button>
+        </div>
+
+
+        <div class="panel suspect">
+          <div class="avatar">LH</div>
+
+          <span class="role">JOURNALIST</span>
+
+          <h3>Lena Hart</h3>
+
+          <p>29 years old</p>
+
+          <button onclick="openSuspect('lena')">
+            VIEW FILE
+          </button>
+        </div>
+
+
+        <div class="panel suspect">
+          <div class="avatar">MC</div>
+
+          <span class="role">HEAD CHEF</span>
+
+          <h3>Marcus Cole</h3>
+
+          <p>41 years old</p>
+
+          <button onclick="openSuspect('marcus')">
+            VIEW FILE
+          </button>
+        </div>
+
+
+        <div class="panel suspect">
+          <div class="avatar">NS</div>
+
+          <span class="role">HOTEL GUEST</span>
+
+          <h3>Nora Shaw</h3>
+
+          <p>34 years old</p>
+
+          <button onclick="openSuspect('nora')">
+            VIEW FILE
+          </button>
+        </div>
+
+      </div>
+
+      <div id="suspectDetail" class="panel detail hidden"></div>
+
+    </section>
+
+
+    <!-- EVIDENCE -->
+
+    <section id="evidence" class="section">
+
+      <div class="section-title">
+
+        <div>
+          <span class="eyebrow">EVIDENCE ROOM</span>
+          <h2>Collected Evidence</h2>
+        </div>
+
+        <span class="badge" id="clueCount">
+          0 / 6 CLUES
+        </span>
+
+      </div>
+
+
+      <div class="evidence">
+
+        <button class="panel evidence-card" onclick="inspectEvidence(0)">
+          <span class="icon">⌚</span>
+          <b>Broken Watch</b>
+          <small>Found near the desk</small>
+        </button>
+
+
+        <button class="panel evidence-card" onclick="inspectEvidence(1)">
+          <span class="icon">🔑</span>
+          <b>Room Key</b>
+          <small>Inside the victim's coat</small>
+        </button>
+
+
+        <button class="panel evidence-card" onclick="inspectEvidence(2)">
+          <span class="icon">☕</span>
+          <b>Coffee Cup</b>
+          <small>Still warm at 11:42</small>
+        </button>
+
+
+        <button class="panel evidence-card" onclick="inspectEvidence(3)">
+          <span class="icon">📄</span>
+          <b>Torn Note</b>
+          <small>Recovered from the bin</small>
+        </button>
+
+
+        <button class="panel evidence-card" onclick="inspectEvidence(4)">
+          <span class="icon">📹</span>
+          <b>Camera Log</b>
+          <small>Lobby security system</small>
+        </button>
+
+
+        <button class="panel evidence-card" onclick="inspectEvidence(5)">
+          <span class="icon">🧤</span>
+          <b>Wet Glove</b>
+          <small>Found in the kitchen</small>
+        </button>
+
+      </div>
+
+
+      <div id="evidenceDetail" class="panel detail hidden"></div>
+
+    </section>
+
+
+    <!-- INTERROGATION -->
+
+    <section id="interrogation" class="section">
+
+      <div class="section-title">
+        <div>
+          <span class="eyebrow">QUESTIONING ROOM</span>
+          <h2>Interrogation</h2>
+        </div>
+      </div>
+
+
+      <div class="interrogation">
+
+        <div class="panel people">
+
+          <button class="person active" onclick="selectPerson('victor',this)">
+            Victor Reed
+          </button>
+
+          <button class="person" onclick="selectPerson('lena',this)">
+            Lena Hart
+          </button>
+
+          <button class="person" onclick="selectPerson('marcus',this)">
+            Marcus Cole
+          </button>
+
+          <button class="person" onclick="selectPerson('nora',this)">
+            Nora Shaw
+          </button>
+
+        </div>
+
+
+        <div class="panel interrogation-box">
+
+          <div id="interrogationContent">
+
+            <div class="avatar big">VR</div>
+
+            <h3>Victor Reed</h3>
+
+            <p>
+              "I was downstairs in the lobby all night.
+              I never went anywhere near Room 307."
+            </p>
+
+            <button onclick="askQuestion(0)">
+              Where were you at 11:30?
+            </button>
+
+            <button onclick="askQuestion(1)">
+              Did you know Elias?
+            </button>
+
+            <button onclick="askQuestion(2)">
+              Did you see anyone?
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FINAL DEDUCTION -->
+
+    <section id="deduction" class="section">
+
+      <div class="section-title">
+
+        <div>
+          <span class="eyebrow">FINAL REPORT</span>
+          <h2>Make Your Deduction</h2>
+        </div>
+
+      </div>
+
+
+      <div class="panel deduction">
+
+        <p>
+          You've investigated the evidence.
+          You've questioned the suspects.
+        </p>
+
+        <h3>Who is responsible?</h3>
+
+        <div class="choices">
+
+          <button onclick="solve('victor')">
+            Victor Reed
+          </button>
+
+          <button onclick="solve('lena')">
+            Lena Hart
+          </button>
+
+          <button onclick="solve('marcus')">
+            Marcus Cole
+          </button>
+
+          <button onclick="solve('nora')">
+            Nora Shaw
+          </button>
+
+        </div>
+
+        <div id="result"></div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    MYSTERY CASE © 2026
+  </footer>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
